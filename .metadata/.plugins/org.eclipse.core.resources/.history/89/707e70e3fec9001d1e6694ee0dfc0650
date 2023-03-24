@@ -1,0 +1,75 @@
+package com.telecom.mobileplanservice;
+
+import static org.mockito.Mockito.verify;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.telecom.mobileplanservice.entities.Plan;
+import com.telecom.mobileplanservice.repositories.PlanRepositories;
+import com.telecom.mobileplanservice.services.PlanService;
+
+@SpringBootTest
+class MobilePlanServiceApplicationTests {
+
+	@Mock
+	private PlanRepositories repo;
+	
+	@Autowired
+	private PlanService service;
+	
+	@BeforeEach
+	void setUp() {
+		this.service = new PlanService() {
+			
+			@Override
+			public Plan updatePlan(Plan plan, int id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Plan getPlanById(int id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public List<Plan> getAllPlan() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Plan deletePlan(int id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Plan addPlan(Plan plan) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+	}
+	
+	@Test
+	void contextLoads() {
+	}
+
+	@Test
+	void getAllPlan() {
+		
+		service.getAllPlan();
+		verify(repo).findAll();
+	}
+	
+	
+}
